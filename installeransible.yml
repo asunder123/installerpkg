@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  tasks:
+  - name: Install apache
+    yum:
+     name: httpd
+     state: present
+    when: ansible_system_vendor == 'HP' and ansible_os_family == 'Windows'
+  
+  - name: install yum
+    package:
+     name: yum
+     state: latest
+ 
+  - name: install dpkg
+    package:
+      name: dpkg
+      state: latest    
